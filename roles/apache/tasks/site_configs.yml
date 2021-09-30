@@ -1,0 +1,4 @@
+- name: Install site configurations
+  template: 
+    src:  host.j2
+    dest: /etc/apache2/sites-enabled/{{item.host}}

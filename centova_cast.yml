@@ -1,0 +1,5 @@
+---
+- hosts: centova_cast
+  roles:
+    - { role: centova_cast, tags: centova_cast }
+    - { role: dj-wasabi.telegraf, tags: telegraf }

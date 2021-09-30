@@ -1,0 +1,2 @@
+- include: ssh_authorized_keys.yml
+  tags: ssh_authorized_keys

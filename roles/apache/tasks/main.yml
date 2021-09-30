@@ -1,0 +1,12 @@
+- include: site_configs.yml
+
+- name: install apache
+  become: yes
+  apt:
+    name: apache2
+    state: latest
+
+- name: Reload apache2
+  service:
+    name: apache2
+    state: reloaded

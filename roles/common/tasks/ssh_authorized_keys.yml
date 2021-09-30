@@ -1,0 +1,36 @@
+# For each user defined in {{users}}, make sure the user is added and add their public keys.
+# If the user was just added, expire their password immediately.
+- name: Add user {{item.user}}
+  user: 
+    name: "{{item.user}}"
+    password: "idontcareaboutthispasswordsincethepasswordisdisabledanyway" 
+    groups: 
+      - "{{item.groups}}"
+    append: yes 
+    state: present 
+    update_password: "on_create"
+  register: added_user
+  with_items: "{{users}}"
+
+- name: "Add public key for {{item.0.user}}"
+  authorized_key:
+    user: "{{item.0.user}}"
+    key: "{{item.1}}"
+    state: present
+    exclusive: no
+  with_subelements:
+    - "{{users}}"
+    - keys
+
+- name: Prevent password login for {{item.item.user}}
+  shell: passwd -l {{item.item.user}}
+  when: item.changed
+  with_items: "{{added_user.results}}"
+
+- name: Disallow password authentication
+  lineinfile: 
+    dest: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication"
+    line: "PasswordAuthentication no"
+    state: present
+  notify: Restart ssh

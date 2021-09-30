@@ -1,0 +1,6 @@
+---
+users:
+  - user: maartje
+    keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9MsbnBc/slQW8R/xkR0Li0zxcdzaNauytIrlsRaLDj2derTEyNHeWj8P/VZ5Unppv6Mc0b1mIYkZ0n5iPYzoVhff/igD01HZljBpWUrZUSRl17ea4uKAbtQMSHDkuxmvyPi9y5hQEzyudDk2QGm0hD0QG1oSRoBsAOwvSsjIntCZzagOhP246NRXS7t4VEtmzpmRRPukJhyREKN2VZSS0R63NXpN1xZS9RhVOHwBDzNXifYqCIEBzthc24ZYyJQj+Aj2SHsUROTWo4coW/77eTL0mupaPCSefhQD/xPXZuxQp30s8etOk2ThNGegL7GBDh0sPj39rxdSgpUWgmFCh"
+    groups: sudo

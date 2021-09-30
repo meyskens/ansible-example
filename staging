@@ -1,0 +1,6 @@
+[web_hosts]
+web1.staging.maartje.dev
+web2.staging.maartje.dev
+
+[db_servers]
+db.staging.maartje.dev
